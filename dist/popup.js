@@ -7,7 +7,7 @@ exports.default = undefined;
 
 var _class, _temp2;
 
-var _mapboxGl = require("mapbox-gl/dist/mapbox-gl");
+var _mapboxGl = require("mapbox-gl");
 
 var _mapboxGl2 = _interopRequireDefault(_mapboxGl);
 

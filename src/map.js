@@ -1,4 +1,4 @@
-import MapboxGl from "mapbox-gl/dist/mapbox-gl";
+import MapboxGl from "mapbox-gl";
 import React, { Component, PropTypes } from "react";
 
 export default class ReactMapboxGl extends Component {

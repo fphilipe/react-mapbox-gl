@@ -9,7 +9,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _class, _temp2;
 
-var _mapboxGl = require("mapbox-gl/dist/mapbox-gl");
+var _mapboxGl = require("mapbox-gl");
 
 var _mapboxGl2 = _interopRequireDefault(_mapboxGl);
 
