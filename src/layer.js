@@ -22,6 +22,7 @@ export default class Layer extends Component {
       "circle"
     ]),
 
+    before: PropTypes.string,
     layout: PropTypes.object,
     paint: PropTypes.object,
     sourceOptions: PropTypes.object
@@ -135,7 +136,7 @@ export default class Layer extends Component {
 
   componentWillMount() {
     const { id, source } = this;
-    const { type, layout, paint } = this.props;
+    const { type, before, layout, paint } = this.props;
     const { map } = this.context;
 
     const layer = {
@@ -147,7 +148,7 @@ export default class Layer extends Component {
     };
 
     map.addSource(id, source);
-    map.addLayer(layer);
+    map.addLayer(layer, before);
 
     map.on("click", this.onClick);
     map.on("mousemove", this.onMouseMove);
@@ -165,7 +166,7 @@ export default class Layer extends Component {
   }
 
   componentWillReceiveProps(props) {
-    const { paint, layout } = this.props;
+    const { before, paint, layout } = this.props;
 
     if(!_.isEqual(props.paint, paint)) {
       _.forEach(diff(paint, props.paint), (val, key) => {
@@ -177,6 +178,12 @@ export default class Layer extends Component {
       _.forEach(diff(layout, props.layout), (val, key) => {
         this.context.map.setLayoutProperty(this.id, key, val);
       });
+    }
+
+    if (props.before !== before) {
+      const layer = map.getLayer(this.id);
+      map.removeLayer(this.id);
+      map.addLayer(layer, props.before);
     }
   }
 

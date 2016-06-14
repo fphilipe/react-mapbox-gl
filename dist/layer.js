@@ -177,6 +177,7 @@ var Layer = (_temp2 = _class = function (_Component) {
     var source = this.source;
     var _props = this.props;
     var type = _props.type;
+    var before = _props.before;
     var layout = _props.layout;
     var paint = _props.paint;
     var map = this.context.map;
@@ -191,7 +192,7 @@ var Layer = (_temp2 = _class = function (_Component) {
     };
 
     map.addSource(id, source);
-    map.addLayer(layer);
+    map.addLayer(layer, before);
 
     map.on("click", this.onClick);
     map.on("mousemove", this.onMouseMove);
@@ -213,6 +214,7 @@ var Layer = (_temp2 = _class = function (_Component) {
     var _this4 = this;
 
     var _props2 = this.props;
+    var before = _props2.before;
     var paint = _props2.paint;
     var layout = _props2.layout;
 
@@ -227,6 +229,12 @@ var Layer = (_temp2 = _class = function (_Component) {
       _lodash2.default.forEach((0, _helper.diff)(layout, props.layout), function (val, key) {
         _this4.context.map.setLayoutProperty(_this4.id, key, val);
       });
+    }
+
+    if (props.before !== before) {
+      var layer = map.getLayer(this.id);
+      map.removeLayer(this.id);
+      map.addLayer(layer, props.before);
     }
   };
 
@@ -260,6 +268,7 @@ var Layer = (_temp2 = _class = function (_Component) {
 
   type: _react.PropTypes.oneOf(["symbol", "line", "fill", "circle"]),
 
+  before: _react.PropTypes.string,
   layout: _react.PropTypes.object,
   paint: _react.PropTypes.object,
   sourceOptions: _react.PropTypes.object
