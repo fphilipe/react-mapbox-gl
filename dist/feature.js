@@ -18,7 +18,8 @@ Feature.propTypes = {
   coordinates: _react.PropTypes.array.isRequired,
   onClick: _react.PropTypes.func,
   onHover: _react.PropTypes.func,
-  onEndHover: _react.PropTypes.func
+  onEndHover: _react.PropTypes.func,
+  properties: _react.PropTypes.object
 };
 
 exports.default = Feature;

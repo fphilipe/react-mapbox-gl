@@ -68,11 +68,14 @@ export default class Layer extends Component {
     }
   };
 
-  feature = (props, id) => ({
-    type: "Feature",
-    geometry: this.geometry(props.coordinates),
-    properties: { id }
-  })
+  feature = (props, id) => {
+    const { coordinates, properties } = props
+    return {
+      type: "Feature",
+      geometry: this.geometry(coordinates),
+      properties: { id, ...properties }
+    }
+  }
 
   onClick = evt => {
     const children = [].concat(this.props.children);

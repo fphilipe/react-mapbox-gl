@@ -82,10 +82,13 @@ var Layer = (_temp2 = _class = function (_Component) {
           return null;
       }
     }, _this.feature = function (props, id) {
+      var coordinates = props.coordinates;
+      var properties = props.properties;
+
       return {
         type: "Feature",
-        geometry: _this.geometry(props.coordinates),
-        properties: { id: id }
+        geometry: _this.geometry(coordinates),
+        properties: _extends({ id: id }, properties)
       };
     }, _this.onClick = function (evt) {
       var children = [].concat(_this.props.children);
