@@ -62,6 +62,7 @@ export default class ReactMapboxGl extends Component {
       hash,
       preserveDrawingBuffer,
       accessToken,
+      attributionControl,
       center,
       zoom,
       onStyleLoad,
