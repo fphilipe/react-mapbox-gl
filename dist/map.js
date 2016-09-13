@@ -73,7 +73,8 @@ var ReactMapboxGl = (_temp2 = _class = function (_Component) {
       container: this.refs.mapboxContainer,
       center: center,
       style: style,
-      scrollZoom: scrollZoom
+      scrollZoom: scrollZoom,
+      attributionControl: attributionControl
     });
 
     map.on("style.load", function () {
@@ -218,6 +219,7 @@ var ReactMapboxGl = (_temp2 = _class = function (_Component) {
   return ReactMapboxGl;
 }(_react.Component), _class.propTypes = {
   style: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.object]).isRequired,
+  attributionControl: _react.PropTypes.bool,
   accessToken: _react.PropTypes.string.isRequired,
   center: _react.PropTypes.arrayOf(_react.PropTypes.number),
   zoom: _react.PropTypes.number,
@@ -241,7 +243,8 @@ var ReactMapboxGl = (_temp2 = _class = function (_Component) {
   center: [-0.2416815, 51.5285582],
   zoom: 11,
   scrollZoom: true,
-  movingMethod: "flyTo"
+  movingMethod: "flyTo",
+  attributionControl: true
 }, _class.childContextTypes = {
   map: _react2.default.PropTypes.object
 }, _temp2);

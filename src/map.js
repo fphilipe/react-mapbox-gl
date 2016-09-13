@@ -7,6 +7,7 @@ export default class ReactMapboxGl extends Component {
       PropTypes.string,
       PropTypes.object
     ]).isRequired,
+    attributionControl: PropTypes.bool,
     accessToken: PropTypes.string.isRequired,
     center: PropTypes.arrayOf(PropTypes.number),
     zoom: PropTypes.number,
@@ -39,7 +40,8 @@ export default class ReactMapboxGl extends Component {
     ],
     zoom: 11,
     scrollZoom: true,
-    movingMethod: "flyTo"
+    movingMethod: "flyTo",
+    attributionControl: true
   };
 
   static childContextTypes = {
@@ -83,7 +85,8 @@ export default class ReactMapboxGl extends Component {
       container: this.refs.mapboxContainer,
       center,
       style,
-      scrollZoom
+      scrollZoom,
+      attributionControl
     });
 
     map.on("style.load", (...args) => {
