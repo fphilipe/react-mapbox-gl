@@ -50,6 +50,7 @@ var ReactMapboxGl = (_temp2 = _class = function (_Component) {
     var hash = _props.hash;
     var preserveDrawingBuffer = _props.preserveDrawingBuffer;
     var accessToken = _props.accessToken;
+    var attributionControl = _props.attributionControl;
     var center = _props.center;
     var zoom = _props.zoom;
     var onStyleLoad = _props.onStyleLoad;
